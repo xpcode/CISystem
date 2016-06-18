@@ -1,0 +1,26 @@
+{
+  "name": "CISystem",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "normalizr": "^2.1.0",
+    "react": "^15.1.0",
+    "react-native": "^0.27.2",
+    "react-native-router-flux": "^3.30.0",
+    "react-native-vector-icons": "^2.0.3",
+    "react-redux": "^4.4.5",
+    "redux": "^3.3.1",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-jest": "^12.1.0",
+    "babel-preset-react-native": "^1.9.0",
+    "babel-preset-react-native-stage-0": "^1.0.1"
+  }
+}
