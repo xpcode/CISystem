@@ -15,11 +15,13 @@ import {
 import {
     TabIcon,
     LoginView,
-    SearchView,
     ExploreView,
     FollowView,
     HomeView,
     OwnView,
+    ByNameSearchView,
+    ByAreaFilterView,
+    ByIndustryFilterView,
 } from './components'
 
 const CISystemNavigator = () => {
@@ -54,16 +56,12 @@ const CISystemNavigator = () => {
                         hideNavBar={true}
                         icon={TabIcon}
                         iconName={"md-person"}
-                        title="我的" />
+                        title="我" />
                 </Scene>
-                <Scene key="search"
-                    component={SearchView}
-                    title="查询企业"
-                    />
-                <Scene key="login"
-                    component={LoginView}
-                    title="登录"
-                    />
+                <Scene key="byNameSearch" component={ByNameSearchView} title="按企业名查询" />
+                <Scene key="byAreaFilter" component={ByAreaFilterView} title="按地区过滤" />
+                <Scene key="byIndustryFilter" component={ByIndustryFilterView} title="按行业过滤" />
+                <Scene key="login" component={LoginView} title="登录" />
             </Scene>
         </Router>
     )

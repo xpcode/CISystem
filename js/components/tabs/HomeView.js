@@ -17,10 +17,13 @@ import {
     Schema,
     Actions 
 } from 'react-native-router-flux'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 class OwnView extends React.Component {
-    handlePress(){
-        Actions.search()
+    handlePress(name){
+        return () => {
+            Actions[name]()
+        }
     }
 
     render(){
@@ -28,10 +31,10 @@ class OwnView extends React.Component {
             <View style={styles.container}>
                 <View style={styles.head}>
                     <Text style={styles.h1}>智能客户系统</Text>
-                    <Text style={styles.h2}>http://cis.chaoke.cn</Text>
+                    <Text style={styles.h2}>http://www.cisys.cn</Text>
                 </View>
                 <View style={styles.search}>
-                    <TouchableOpacity onPress={this.handlePress}>
+                    <TouchableOpacity onPress={this.handlePress('byNameSearch')}>
                         <View style={styles.searchInputBorder}>
                             <Text
                                 autoFocus={false}
@@ -47,7 +50,34 @@ class OwnView extends React.Component {
                         <Text style={styles.filter_input}>筛选客户</Text>
                     </View>
                     <View style={styles.filter_body}>
-                        <Text>nothing...</Text>
+                        <TouchableOpacity onPress={this.handlePress('byNameSearch')}>
+                            <View style={styles.filterParam}>
+                                <Icon
+                                    name="ios-podium-outline"
+                                    size={30}
+                                    onPress={e => Actions.pop() } />
+                                <Text
+                                    autoFocus={false}
+                                    editable={false}
+                                    style={styles.searchInput}>
+                                    按地区
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={this.handlePress('byNameSearch')}>
+                            <View style={styles.filterParam}>
+                                <Icon
+                                    name="ios-pin-outline"
+                                    size={30}
+                                    onPress={e => Actions.pop() } />
+                                <Text
+                                    autoFocus={false}
+                                    editable={false}
+                                    style={styles.searchInput}>
+                                    按行业
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -112,9 +142,21 @@ const styles = StyleSheet.create({
 
     },
     filter_body: {
-        height: 140,
+        flexDirection: 'row',
+        height: 120,
         alignItems: 'center',
-        justifyContent: 'center'
-        // backgroundColor: 'blue',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    filterParam: {
+        width: 75,
+        height: 75,
+        marginLeft: 20,
+        marginRight: 20,
+        borderColor: '#e0e1e4',
+        borderWidth: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#ebecef',
     }
 });
