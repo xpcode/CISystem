@@ -11,7 +11,7 @@
 * [cn-zh](http://reactnative.cn/docs/0.27/getting-started.html)
 
 ### Installation
-First, initial depances `<node_modules>`
+First, initialize `<node_modules>`
 ```bash
 npm install
 ```
