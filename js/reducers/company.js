@@ -6,6 +6,7 @@ import {
 
 const initialState = Immutable.fromJS({
     companyList: [],
+    followList: [],
 })
 
 export default (state = initialState, action) => {

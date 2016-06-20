@@ -34,6 +34,8 @@ class SearchView extends React.Component {
         super(props)
 
         this.handleChangeText = this.handleChangeText.bind(this)
+        this.handleRenderRow = this.handleRenderRow.bind(this)
+        this.handlePressItem = this.handlePressItem.bind(this)
     }
 
     handleChangeText(text) {
@@ -46,12 +48,17 @@ class SearchView extends React.Component {
 
         if (!!rowData && !!rowData.company_name) {
             return (
-                <TouchableOpacity style={[styles.listItem, rowIndex !== 0 && styles.listItemSpit]}>
+                <TouchableOpacity onPress={this.handlePressItem} style={[styles.listItem, rowIndex !== 0 && styles.listItemSpit]}>
                     <Text>{rowData.company_name}</Text>
                 </TouchableOpacity>
             )
         }
         return null
+    }
+
+    handlePressItem(){
+        LOG(arguments)
+        Actions.companyInfo()
     }
 
     render() {
