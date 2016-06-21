@@ -33,7 +33,7 @@ class OwnView extends React.Component {
             <View style={styles.container}>
                 <View style={styles.head}>
                     <Text style={styles.h1}>智能客户系统</Text>
-                    <Text style={styles.h2}>http://www.cisys.cn</Text>
+                    <Text style={styles.h2}>http://www.domain.com</Text>
                 </View>
                 <View style={styles.search}>
                     <TouchableOpacity onPress={this.handlePress('byNameSearch')}>
