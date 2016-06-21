@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">9IqQRVVMGzClEDKqoVoIEOP695-_E1hLm1MHW</string>
     <string name="app_name">CISystem</string>
 </resources>

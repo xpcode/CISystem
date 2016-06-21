@@ -1,21 +1,28 @@
 import React from 'React'
 import { Provider } from 'react-redux'
 import Immutable from 'immutable'
+import codePush from 'react-native-code-push'
 
 import configureStore from './store/configureStore'
 import CISystem from './CISystem'
 
 const store = configureStore()
 
-export default () => () => {
-    return (
-        <Provider store={store}>
-            <CISystem/>
-        </Provider>
-    )
+class App extends React.Component {
+    componentDidMount() {
+        codePush.sync()
+    }
+
+    render() {
+        return (
+            <Provider store={store}>
+                <CISystem/>
+            </Provider>
+        )
+    }
 }
 
-// ext install change-case
+export default () => App
 
 console.disableYellowBox = true
 

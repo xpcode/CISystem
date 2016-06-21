@@ -14,7 +14,7 @@ class TabIcon extends React.Component {
             title,
             iconName,
         } = this.props
-        const color = selected ? '#FF3366' : '#FFB3B3'
+        const color = selected ? '#333' : '#999'
 
         return (
             <View style={styles.container}>

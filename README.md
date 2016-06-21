@@ -21,6 +21,12 @@ react-native run-android
 
 ```
 
+### Generating Release
+```bash
+react-native bundle  — platform android --entry-file index.android.js --bundle-output ./bundles/index.android.bundle --dev false
+code-push release CISystem ./bundles 1.0.0 --mandatory true
+```
+
 ### Screens
 
 | Platform| Home | My | Search |
@@ -35,3 +41,5 @@ react-native run-android
 - [immutable](http://facebook.github.io/immutable-js)
 - [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+- [code-push](https://github.com/Microsoft/react-native-code-push)
+- [Generating Signed APK](https://facebook.github.io/react-native/docs/signed-apk-android.html)
