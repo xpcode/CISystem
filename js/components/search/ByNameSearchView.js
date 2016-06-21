@@ -218,6 +218,5 @@ const styles = StyleSheet.create({
     },
     listItemSpit: {
         marginTop: 2,
-        borderTopWidth: 1,
     }
 })

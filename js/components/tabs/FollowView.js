@@ -29,7 +29,7 @@ const mapDispatchToProps = {
 }
 
 class FollowView extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
 
     }
 
@@ -37,14 +37,28 @@ class FollowView extends React.Component {
         const { followList } = this.props
         const dataSource = lvDataSource.cloneWithRows(followList)
 
+
         return (
             <View style={styles.container}>
-                <ListView
-                    dataSource={dataSource}
-                    renderRow={this.handleRenderRow}
-                    onEndReachedThreshold={100}
-                    />
+                {this.renderContent(followList) }
             </View>
+        )
+    }
+
+    renderContent(followList) {
+        if (followList.length === 0) {
+            return (
+                <View style={styles.nothing}>
+                    <Text>暂无</Text>
+                </View>
+            )
+        }
+        return (
+            <ListView
+                dataSource={dataSource}
+                renderRow={this.handleRenderRow}
+                onEndReachedThreshold={100}
+                />
         )
     }
 
@@ -71,45 +85,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
 
-    search: {
-        flex: 0,
-        flexDirection: 'row',
-        height: 40,
-        justifyContent: 'space-around',
-        backgroundColor: '#9ba1f1',
-        borderBottomWidth: 1,
-    },
-    iconBackWrapper: {
-        flex: 0,
-        width: 40,
-        height: 40,
+    nothing: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    searchInputWrapper: {
-        flex: 1,
-    },
-    searchInput: {
-        flex: 1,
-        backgroundColor: '#FFF',
-    },
-    iconSortWrapper: {
-        flex: 0,
-        width: 40,
-        height: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    searchResult: {
-        flex: 0,
-        height: 20,
-        justifyContent: 'center',
-        paddingLeft: 6,
-        backgroundColor: '#999',
-    },
-    listCount: {
-        color: 'red',
     },
 
     list: {

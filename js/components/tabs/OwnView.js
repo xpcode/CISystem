@@ -2,44 +2,74 @@ import React from 'react'
 import {
     StyleSheet,
     Text,
+    Image,
     View,
     ListView,
-    Navigator,
+    TouchableOpacity,
 } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-class OwnView extends React.Component {
+export default class OwnView extends React.Component {
+    handlePressHeadImg(){
+        Actions.login()
+    }
+
     render(){
         return (
-            <View style={{backgroundColor: 'red'}}>
-                <View>
-                    <Text>智能客户系统</Text>
-                    <Text>http://cis.chaoke.cn</Text>
+            <View style={styles.container}>
+                <View style={styles.head}>
+                    <Icon
+                        name="ios-contact"
+                        size={130}
+                        onPress={this.handlePressHeadImg} />
+                    <Image style={styles.headImg}>
+                        <Text>登录</Text>
+                    </Image>
                 </View>
-                <View>
-                    <Text>请输入企业名..</Text>
+                <View style={styles.menu}>
+                    <TouchableOpacity style={styles.menuItem}>
+                        <Text>我的售前</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.menuItem}>
+                        <Text>我的售后</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.menuItem, styles.menuItemSplit]}>
+                        <Text>关于</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
     }
 }
 
-var styles = StyleSheet.create({
-    drawer: {
-        flex: 1,
-        backgroundColor: 'white',
-    },
-    content: {
-        flex: 1,
-    },
-    header: {
-        padding: 20,
-        justifyContent: 'flex-end',
-    },
-    name: {
-        marginTop: 10,
-        color: 'white',
-        fontSize: 12,
-    },
-});
 
-export default OwnView
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff'
+    },
+
+    head:{
+        flex: 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f3f1f1',
+    },
+    headImg: {
+    },
+    
+    menu: {
+        flex: 2,
+    },
+    menuItem:{
+        height: 40,
+        justifyContent: 'center',
+        paddingLeft: 20,
+        borderTopWidth: 1,
+        borderColor: '#e4e3e3',
+    },
+    menuItemSplit: {
+        borderBottomWidth: 1,
+    },
+})
