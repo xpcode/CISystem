@@ -3,8 +3,8 @@
 
 ### How to ?
 - [Getting Started](#getting-started)
-- [Installation](#Installation)
-- [Run](#Run)
+- [Installation](#installation)
+- [Run](#run)
 
 ### Getting Started
 - [en](https://facebook.github.io/react-native/docs/getting-started.html)
