@@ -19,6 +19,8 @@ import {
 } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
+import commonStyles from '../common/styles'
+
 class OwnView extends React.Component {
     handlePress(name){
         return () => {
@@ -103,7 +105,8 @@ const styles = StyleSheet.create({
     head: {
         height: 160,
         alignItems: 'center',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        backgroundColor: '#fff',
     },
     h1: {
         fontSize:36,
@@ -117,6 +120,7 @@ const styles = StyleSheet.create({
     search: {
         height: 140,
         justifyContent: 'center',
+        backgroundColor: '#fff',
     },
     searchInputBorder: {
         height: 40,

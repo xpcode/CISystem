@@ -11,6 +11,8 @@ import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
+import commonStyles from '../common/styles'
+import HeadBar from '../common/HeadBar'
 import {
     fetchCompanysAsync
 } from '../../actions/company'
@@ -69,14 +71,8 @@ class SearchView extends React.Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.search}>
-                    <View style={styles.iconBackWrapper}>
-                        <Icon
-                            name="ios-arrow-back-outline"
-                            size={30}
-                            onPress={e => Actions.pop() } />
-                    </View>
-                    <TouchableOpacity style={styles.searchInputWrapper}>
+                <HeadBar>
+                    <View style={styles.searchInputWrapper}>
                         <TextInput
                             style={styles.searchInput}
                             autoCorrect={false}
@@ -85,11 +81,10 @@ class SearchView extends React.Component {
                             onChangeText={this.handleChangeText}
                             placeholder="请输入企业名.."
                             selectTextOnFocus={true}
-                            selectionColor="red"
                             />
-                    </TouchableOpacity>
+                    </View>
                     {this.renderSortIcon(companyList.length === 0) }
-                </View>
+                </HeadBar>
                 {this.renderSearchProgressBar(fetching, companyList.length) }
                 <View style={styles.list}>
                     {this.renderSearchResult() }
@@ -123,11 +118,11 @@ class SearchView extends React.Component {
         if (isNoData) return null
 
         return (
-            <View style={[styles.iconSortWrapper]}>
+            <TouchableOpacity style={styles.iconSortWrapper}>
                 <Icon
                     size={30}
                     name="ios-list-outline" />
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -160,32 +155,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
 
-    search: {
-        flex: 0,
-        flexDirection: 'row',
-        height: 40,
-        justifyContent: 'space-around',
-        backgroundColor: '#9ba1f1',
-        borderBottomWidth: 1,
-    },
-    iconBackWrapper: {
-        flex: 0,
-        width: 40,
-        height: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     searchInputWrapper: {
         flex: 1,
+        borderLeftWidth: 1,
+        borderColor: '#d4d2d2'
     },
     searchInput: {
-        flex: 1,
-        backgroundColor: '#FFF',
+        paddingLeft: 10,
     },
     iconSortWrapper: {
         flex: 0,
         width: 40,
         height: 40,
+        borderLeftWidth: 1,
+        borderColor: '#d4d2d2',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -218,5 +201,5 @@ const styles = StyleSheet.create({
     },
     listItemSpit: {
         marginTop: 2,
-    }
+    },
 })

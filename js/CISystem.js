@@ -59,7 +59,7 @@ const CISystemNavigator = () => {
                         iconName={"md-person"}
                         title="我" />
                 </Scene>
-                <Scene key="companyInfo" hideNavBar={false} component={CompanyInfoView} title="详情" />
+                <Scene key="companyInfo" component={CompanyInfoView} title="详情" />
                 <Scene key="byNameSearch" component={ByNameSearchView} title="按企业名查询" />
                 <Scene key="byAreaFilter" component={ByAreaFilterView} title="按地区过滤" />
                 <Scene key="byIndustryFilter" component={ByIndustryFilterView} title="按行业过滤" />

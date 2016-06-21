@@ -1,6 +1,7 @@
 // commons
 import TabIcon from './common/TabIcon'
 import CompanyInfoView from './common/CompanyInfoView'
+import styles from './common/styles'
 
 // search
 import ByNameSearchView from './search/ByNameSearchView'
@@ -15,7 +16,10 @@ import OwnView from './tabs/OwnView'
 import LoginView from './login/LoginView'
 
 export {
+    styles,
     TabIcon,
+    CompanyInfoView,
+
     ByNameSearchView,
     ByAreaFilterView,
     ByIndustryFilterView,
@@ -25,6 +29,4 @@ export {
     FollowView,
     HomeView,
     OwnView,
-
-    CompanyInfoView,
 }

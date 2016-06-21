@@ -8,18 +8,27 @@ import {
     Navigator,
 } from 'react-native'
 import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-class CompanyInfoView extends React.Component {
-    constructor(){
-        super()
-    }
+import commonStyles from './styles'
+import HeadBar from './HeadBar'
+
+export default class CompanyInfoView extends React.Component {
     render() {
         return (
-            <View>
-                <Text>CompanyInfoView</Text>
+            <View style={styles.container}>
+                <HeadBar iconFloat={true}>
+                    <Text>详情</Text>
+                </HeadBar>
             </View>
         );
     }
 }
 
-export default CompanyInfoView
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+})
