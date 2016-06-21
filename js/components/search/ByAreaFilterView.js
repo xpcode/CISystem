@@ -127,10 +127,12 @@ const styles = StyleSheet.create({
 
     searchInputWrapper: {
         flex: 1,
+        borderLeftWidth: 1,
+        borderColor: '#d4d2d2',
     },
     searchInput: {
-        flex: 1,
-        backgroundColor: '#FFF',
+        paddingLeft: 10,
+        borderWidth: 0,
     },
     iconSortWrapper: {
         flex: 0,

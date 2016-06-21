@@ -23,8 +23,17 @@ react-native run-android
 
 ### Generating Release
 ```bash
+# build android APK
+cd android && ./gradlew assembleRelease
+
+# build index.android.bundle.js
 react-native bundle  — platform android --entry-file index.android.js --bundle-output ./bundles/index.android.bundle --dev false
+
+# release index.android.bundle.js
 code-push release CISystem ./bundles 1.0.0 --mandatory true
+
+# update index.android.bundle.js
+code-push patch CISystem Staging -l v6 --des "update description"
 ```
 
 ### Screens
