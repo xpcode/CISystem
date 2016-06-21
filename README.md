@@ -21,6 +21,14 @@ react-native run-android
 
 ```
 
+### Screens
+
+| Platform| Home | My | Search |
+| :------:| :-------: | :----: | :---: |
+| iOS | ![Home]() | ![My]() | ![Search]() |
+| Android | ![Home](https://raw.githubusercontent.com/xpcode/CISystem/master/js/_screenshot/home.png) | ![Profile](https://raw.githubusercontent.com/xpcode/CISystem/master/js/_screenshot/my.png) | ![Profile](https://raw.githubusercontent.com/xpcode/CISystem/master/js/_screenshot/searchByName.png) |
+
+
 ### Resources
 - [react-native](https://facebook.github.io/react-native) 
 - [redux](https://github.com/reactjs/redux)
