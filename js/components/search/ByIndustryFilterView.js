@@ -14,6 +14,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import {
     fetchCompanysAsync
 } from '../../actions/company'
+import HeadBar from '../common/HeadBar'
 
 const lvDataSource = new ListView.DataSource({
     rowHasChanged: (r1, r2) => true
@@ -60,13 +61,7 @@ class ByIndustryFilterView extends React.Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.search}>
-                    <View style={styles.iconBackWrapper}>
-                        <Icon
-                            name="ios-arrow-back-outline"
-                            size={30}
-                            onPress={e => Actions.pop() } />
-                    </View>
+                <HeadBar style={styles.search}>
                     <TouchableOpacity style={styles.searchInputWrapper}>
                         <TextInput
                             style={styles.searchInput}
@@ -80,7 +75,7 @@ class ByIndustryFilterView extends React.Component {
                             />
                     </TouchableOpacity>
                     {this.renderSortIcon(companyList) }
-                </View>
+                </HeadBar>
                 {this.renderSearchProgressBar(companyList) }
                 <View style={styles.list}>
                     <ListView

@@ -52,12 +52,11 @@ class OwnView extends React.Component {
                         <Text style={styles.filter_input}>筛选客户</Text>
                     </View>
                     <View style={styles.filter_body}>
-                        <TouchableOpacity onPress={this.handlePress('byNameSearch')}>
+                        <TouchableOpacity onPress={this.handlePress('byAreaFilter')}>
                             <View style={styles.filterParam}>
                                 <Icon
                                     name="ios-podium-outline"
-                                    size={30}
-                                    onPress={e => Actions.pop() } />
+                                    size={30} />
                                 <Text
                                     autoFocus={false}
                                     editable={false}
@@ -66,12 +65,11 @@ class OwnView extends React.Component {
                                 </Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={this.handlePress('byNameSearch')}>
+                        <TouchableOpacity onPress={this.handlePress('byIndustryFilter')}>
                             <View style={styles.filterParam}>
                                 <Icon
                                     name="ios-pin-outline"
-                                    size={30}
-                                    onPress={e => Actions.pop() } />
+                                    size={30} />
                                 <Text
                                     autoFocus={false}
                                     editable={false}

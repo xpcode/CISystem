@@ -6,14 +6,25 @@ import commonStyles from './styles'
 import BackupButton from './BackupButton'
 
 export default class HeadBar extends React.Component {
-    propTypes = {
-        iconFloat: false
+    static propTypes = {
+        iconFloat: React.PropTypes.bool,
+        height: React.PropTypes.number,
+    };
+
+    static defaultProps = {
+        iconFloat: false,
+        height: 40,
     };
 
     render() {
+        const {
+            height,
+            iconFloat,
+        } = this.props
+
         return (
-            <View style={[styles.container, commonStyles.backgroundColor]}>
-                <BackupButton iconFloat={this.props.iconFloat}/>
+            <View style={[styles.container, { height: height }, commonStyles.backgroundColor]}>
+                <BackupButton iconFloat={iconFloat} height={height}/>
                 <View style={styles.title}>
                     {this.props.children}
                 </View>
@@ -27,7 +38,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 0,
         flexDirection: 'row',
-        height: 40,
         borderBottomWidth: 1,
         borderColor: '#c5c4c4',
     },

@@ -11,21 +11,20 @@ import { Actions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class OwnView extends React.Component {
-    handlePressHeadImg(){
+    handlePressHeadImg() {
         Actions.login()
     }
 
-    render(){
+    render() {
         return (
             <View style={styles.container}>
                 <View style={styles.head}>
-                    <Icon
-                        name="ios-contact"
-                        size={130}
-                        onPress={this.handlePressHeadImg} />
-                    <Image style={styles.headImg}>
+                    <TouchableOpacity style={styles.head} onPress={this.handlePressHeadImg}>
+                        <Icon
+                            name="ios-contact"
+                            size={130} />
                         <Text>登录</Text>
-                    </Image>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.menu}>
                     <TouchableOpacity style={styles.menuItem}>
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
 
-    head:{
+    head: {
         flex: 2,
         alignItems: 'center',
         justifyContent: 'center',
@@ -58,11 +57,11 @@ const styles = StyleSheet.create({
     },
     headImg: {
     },
-    
+
     menu: {
         flex: 2,
     },
-    menuItem:{
+    menuItem: {
         height: 40,
         justifyContent: 'center',
         paddingLeft: 20,

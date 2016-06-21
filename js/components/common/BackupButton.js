@@ -8,17 +8,21 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import commonStyles from './styles'
 
 export default class BackupButton extends React.Component {
-    propTypes = {
-        iconFloat: false
+    static defaultProps = {
+        iconFloat: false,
+        height: 40,
     };
 
     render() {
-        const { iconFloat } = this.props
+        const {
+            iconFloat,
+            height,
+        } = this.props
 
         return (
             <TouchableOpacity
                 onPress={e => Actions.pop() }
-                style={[styles.container, iconFloat && styles.iconFloat]}>
+                style={[styles.container, { height: height, width: height }, iconFloat && styles.iconFloat]}>
                 <Icon
                     name="ios-arrow-back-outline"
                     size={30}
@@ -31,8 +35,6 @@ export default class BackupButton extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        width: 40,
-        height: 40,
         alignItems: 'center',
         justifyContent: 'center',
     },

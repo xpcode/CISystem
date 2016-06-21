@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     },
     searchInput: {
         paddingLeft: 10,
+        borderWidth: 0,
     },
     iconSortWrapper: {
         flex: 0,
