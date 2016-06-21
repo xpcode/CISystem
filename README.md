@@ -1,5 +1,5 @@
 #CISystem
-> Smart client system. for practice based on the react-native mobile client development
+> Smart client system. for practice based on the react-native mobile app development.
 
 ### How to ?
 - [Getting Started](#getting-started)
