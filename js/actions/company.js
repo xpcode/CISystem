@@ -1,4 +1,5 @@
 export const ACTION_SEARCH_BYNAME = 'ACTION_SEARCH_BYNAME'
+export const ACTION_SEARCH_BYNAME_FETCHING = 'ACTION_SEARCH_BYNAME_FETCHING'
 export const action_get_companys = 'action_get_companys'
 export const action_get_companys_byname = 'action_get_companys_byname'
 export const action_get_companys_filter = 'action_get_companys_filter'
@@ -31,6 +32,10 @@ export const fetchCompanysAsync = (company_name, startPage = 0, endPage = 20) =>
   }
 
   return dispatch => {
+    dispatch({
+      type: ACTION_SEARCH_BYNAME_FETCHING
+    })
+
     clearTimeout(timerId)
 
     timerId = setTimeout(_fetchCompanysAsync.bind(this, dispatch), 300)

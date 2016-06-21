@@ -22,7 +22,8 @@ const mapStateToProps = (state, ownProps) => {
     const company = state.company.toJS()
 
     return {
-        companyList: company.companyList
+        companyList: company.companyList,
+        fetching: company.fetching,
     }
 }
 const mapDispatchToProps = {
@@ -56,14 +57,15 @@ class SearchView extends React.Component {
         return null
     }
 
-    handlePressItem(){
-        LOG(arguments)
+    handlePressItem() {
         Actions.companyInfo()
     }
 
     render() {
-        const { companyList } = this.props
-        const dataSource = lvDataSource.cloneWithRows(companyList)
+        const {
+            fetching,
+            companyList,
+        } = this.props
 
         return (
             <View style={styles.container}>
@@ -86,45 +88,66 @@ class SearchView extends React.Component {
                             selectionColor="red"
                             />
                     </TouchableOpacity>
-                    {this.renderSortIcon(companyList) }
+                    {this.renderSortIcon(companyList.length === 0) }
                 </View>
-                {this.renderSearchProgressBar(companyList) }
+                {this.renderSearchProgressBar(fetching, companyList.length) }
                 <View style={styles.list}>
-                    <ListView
-                        dataSource={dataSource}
-                        renderRow={this.handleRenderRow}
-                        onEndReachedThreshold={100}
-                        pageSize={5}
-                        />
+                    {this.renderSearchResult() }
                 </View>
             </View>
         )
     }
 
-    renderSortIcon(companyList) {
-        if (companyList.length > 0) {
+    renderSearchResult() {
+        const { companyList } = this.props
+        const dataSource = lvDataSource.cloneWithRows(companyList)
+
+        if (companyList.length === 0) {
             return (
-                <View style={[styles.iconSortWrapper]}>
-                    <Icon
-                        size={30}
-                        name="ios-list-outline" />
+                <View style={styles.nodata}>
+                    <Text>暂无数据</Text>
                 </View>
             )
         }
-        return null
+
+        return (
+            <ListView
+                dataSource={dataSource}
+                renderRow={this.handleRenderRow}
+                onEndReachedThreshold={100}
+                pageSize={5}
+                />)
     }
 
-    renderSearchProgressBar(companyList) {
-        const { length } = companyList
+    renderSortIcon(isNoData) {
+        if (isNoData) return null
 
-        if (length > 0) {
+        return (
+            <View style={[styles.iconSortWrapper]}>
+                <Icon
+                    size={30}
+                    name="ios-list-outline" />
+            </View>
+        )
+    }
+
+    renderSearchProgressBar(fetching, dataNum) {
+        LOG(dataNum)
+        if (fetching === true) {
             return (
                 <View style={styles.searchResult}>
-                    <Text style={{ fontSize: 12 }}>搜索到 <Text style={styles.listCount}>{length}</Text> 条 企业 数据</Text>
+                    <Text style={{ fontSize: 12 }}>查询中..</Text>
                 </View>
             )
+        } else if (dataNum === 0) {
+            return null
         }
-        return null
+
+        return (
+            <View style={styles.searchResult}>
+                <Text style={{ fontSize: 12 }}>搜索到 <Text style={styles.listCount}>{dataNum}</Text> 条 企业 数据</Text>
+            </View>
+        )
     }
 }
 
@@ -180,7 +203,13 @@ const styles = StyleSheet.create({
 
     list: {
         flex: 1,
-        backgroundColor: '#999',
+        backgroundColor: '#e8e8e8',
+    },
+    nodata: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     listItem: {
         flex: 1,
