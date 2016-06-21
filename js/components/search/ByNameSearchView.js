@@ -201,6 +201,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     listItemSpit: {
-        marginTop: 2,
+        marginTop: 1,
     },
 })

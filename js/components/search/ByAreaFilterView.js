@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
 
     list: {
         flex: 1,
-        backgroundColor: '#999',
+        backgroundColor: '#e8e8e8',
     },
     listItem: {
         flex: 1,
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     listItemSpit: {
-        marginTop: 2,
-        borderTopWidth: 1,
+        marginTop: 1,
     }
 })
